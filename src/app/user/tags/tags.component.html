@@ -1,0 +1,12 @@
+<ng-container class="container">
+  <section class="heading">
+  <h1># Public Tags</h1>
+  </section>
+  <section class="content">
+    <mat-selection-list #tags [multiple]="false">
+      <mat-list-option *ngFor="let tag of result" [value]="tag">
+        {{tag}}
+      </mat-list-option>
+    </mat-selection-list>
+    </section>
+  </ng-container>

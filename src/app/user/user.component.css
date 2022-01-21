@@ -1,0 +1,81 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.toolbar{
+  background-color: rgb(241, 241, 241);
+  color: black;
+  height:10%;
+  padding: 0;
+  margin: 0;
+}
+.divide{
+  height: 50%;
+  background-color: #000;
+  width: 0px;
+  margin: 0 5px;
+}
+.invite{
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.icon{
+  padding: 0px 10px;
+}
+.logo{
+width: 15%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.search {
+font-size: 13px;
+padding: 0;
+margin-bottom: -1.2em !important;
+color: black;
+}
+.scon{
+  height: 100%;
+  width: max-content;
+  display:flex;
+  flex-direction: row;
+justify-content: space-between;
+  align-items: center;
+}
+
+.container{
+  width: 100%;
+  height: 90%;
+}
+
+.sidenav{
+width: 15%;
+background-color: rgb(238, 236, 236);
+color: black;
+}
+.list{
+  width: 100%;
+  background-color: rgb(238, 236, 236);
+}
+
+.mat-button-toggle {
+  background-color: rgb(238, 236, 236);
+  color: black;
+
+}
+
+.mat-button-toggle-checked {
+  background-color: rgb(233, 48, 79);
+  color: white;
+}
+
+
+.content{
+width: 85%;
+background-color: white;
+color: black;
+}

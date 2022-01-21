@@ -1,0 +1,89 @@
+<ng-container class="container">
+<section class="heading">
+<h1>Team Tasks</h1>
+<button (click)="addTask()" mat-raised-button color="primary"><mat-icon>add_circle</mat-icon> Add Task</button>
+</section>
+<section class="content">
+  <div class="mat-elevation-z8 tableContainer">
+  <table class="table" matSort matSortActive="Task" mat-table [dataSource]="dataSource" >
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="No">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+      <td mat-cell  *matCellDef="let i = index"> {{i+1}} </td>
+    </ng-container>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell   *matCellDef="let element"> {{element.ID}} </td>
+    </ng-container>
+
+    <!-- Task Column -->
+    <ng-container matColumnDef="Task">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Task </th>
+      <td mat-cell  *matCellDef="let element"> {{element.Task}}</td>
+    </ng-container>
+
+    <!-- Person Column -->
+    <ng-container matColumnDef="Person">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Person </th>
+      <td mat-cell   *matCellDef="let element"  > {{element.Person}}</td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+      <td mat-cell   *matCellDef="let element">
+          <mat-form-field>
+            <mat-label>Select an option</mat-label>
+            <mat-select (ngModelChange)="statusChange($event,element)" [(ngModel)]="element.Status">
+              <mat-select-trigger><mat-chip-list>
+                <mat-chip [ngClass]="{'red':element.Status == 'Pending', 'green': element.Status == 'Finished', 'yellow' : element.Status == 'Work in Progress'}" >{{element.Status}}</mat-chip>
+                </mat-chip-list>
+              </mat-select-trigger>
+              <mat-option value="Pending">Pending</mat-option>
+              <mat-option value="Work in Progress">Work in Progress</mat-option>
+              <mat-option value="Finished">Finished</mat-option>
+            </mat-select>
+          </mat-form-field>
+          </td>
+    </ng-container>
+
+    <!-- Tags Column -->
+    <ng-container matColumnDef="Tags">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Tags </th>
+      <td mat-cell   *matCellDef="let element">
+        <mat-form-field class="tagField" appearance="outline">
+          <mat-label>Select Tag</mat-label>
+          <input matInput list="tags" [(ngModel)]="element.Tags" >
+
+          <button matSuffix mat-icon-button color="primary" (click)="addTag(element)">
+            <mat-icon>save</mat-icon>
+          </button>
+          <datalist id="tags">
+            <option *ngFor="let tag of tags" [value]="tag">
+          </datalist>
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+     <!-- Delete Column -->
+     <ng-container matColumnDef="Delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell   *matCellDef="let element">
+        <button (click)="deleteTask(element)" color="warn" mat-mini-fab>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row class="row" *matHeaderRowDef="displayedColumns;"></tr>
+    <tr mat-row class="row" *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator class="row" [pageSize]="10" [pageSizeOptions]="[1,2,3,4,5]"></mat-paginator>
+
+</div>
+</section>
+</ng-container>

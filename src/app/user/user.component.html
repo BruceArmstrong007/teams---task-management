@@ -1,0 +1,64 @@
+<ng-container>
+  <mat-toolbar class="toolbar">
+
+    <div class="logo"><span>Teams</span></div>
+
+
+    <div class="scon">
+      <mat-icon style="padding: 0 15px;">people_outline</mat-icon>
+      <mat-form-field class="search" appearance="outline">
+        <mat-label>Search</mat-label>
+        <input type="search" matInput>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+
+
+
+    <span class="spacer"></span>
+
+
+    <button mat-button class="icon invite">
+      <mat-icon style="color:rgb(235, 36, 253);padding: 0 0.5px;">upgrade</mat-icon> Upgrade
+    </button>
+
+    <mat-divider [vertical]="true" class="divide"></mat-divider>
+
+    <button mat-button class="icon invite">
+      <mat-icon style="color:rgb(36, 105, 253);padding: 0 0.5px;">add_circle</mat-icon>Invite Team Members
+    </button>
+
+
+    <mat-divider [vertical]="true" class="divide"></mat-divider>
+
+    <button *ngIf="notifications == false" mat-icon-button class="icon" style="color:green" (click)="notify()">
+      <mat-icon>notifications_none</mat-icon>
+    </button>
+    <button *ngIf="notifications == true" mat-icon-button class="icon" style="color:green" (click)="notify()">
+      <mat-icon>notifications_active</mat-icon>
+    </button>
+
+    <mat-divider [vertical]="true" class="divide"></mat-divider>
+
+    <button mat-icon-button class="icon" style="color: purple;">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+  </mat-toolbar>
+  <mat-sidenav-container class="container">
+    <mat-sidenav #sidenav mode="side" opened class="sidenav">
+
+      <mat-button-toggle-group [vertical]="true" [value]="url" class="list" name="team">
+        <mat-button-toggle value="test" [routerLink]="'./tags'"># Public Tags</mat-button-toggle>
+        <mat-button-toggle value="color" [routerLink]="'./Test1'">Test1</mat-button-toggle>
+        <mat-button-toggle value="color" [routerLink]="'./Test2'">Test2</mat-button-toggle>
+        <mat-button-toggle value="task" [routerLink]="'./task'">Team Tasks</mat-button-toggle>
+      </mat-button-toggle-group>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>

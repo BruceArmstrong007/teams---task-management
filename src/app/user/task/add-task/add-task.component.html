@@ -1,0 +1,19 @@
+
+  <h1 mat-dialog-title>Add Task</h1>
+<div mat-dialog-content >
+  <mat-form-field class="form" appearance="fill">
+    <mat-label>Task</mat-label>
+    <input matInput [(ngModel)]="task">
+  </mat-form-field>
+  <mat-form-field class="form" appearance="fill">
+    <mat-label>Person</mat-label>
+    <input matInput [(ngModel)]="person">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="form">
+  <div class="container">
+    <button mat-raised-button color="primary" [mat-dialog-close]="{Task: task,Person: person, ID : id,Status : status,Tags: tags}">
+      <mat-icon>save</mat-icon> Save</button>
+    <button mat-button color="warn" (click)="onNoClick()"><mat-icon>cancel</mat-icon> Cancel</button>
+  </div>
+</div>
