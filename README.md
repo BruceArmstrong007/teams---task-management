@@ -1,3 +1,9 @@
+Note: 
+
+1.)backend folder should be placed inside xampp => htdocs on C drive if u install Xampp in it
+
+2.)UI-Images folder contains images of the teams project
+
 # Team
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
